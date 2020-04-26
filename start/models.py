@@ -18,5 +18,24 @@ class Coffee(models.Model):
 
 
     def __str__(self):
-        return self.name
+        return f'{self.brand} {self.name}'
 
+
+
+class Tea(models.Model):
+    Black = "Черный"
+    Green = "Зеленый"
+    TYPE_TEA_CHOICES = (
+        (Black, 'Черный'),
+        (Green, "Зеленый"),
+
+    )
+    brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True, default="")
+    type_choice = models.CharField(max_length=30, choices=TYPE_TEA_CHOICES)
+    name = models.CharField(max_length=60)
+    price = models.IntegerField()
+    description = models.TextField()
+    photo = models.ImageField(upload_to='', blank=True)
+
+    def __str__(self):
+        return f'{self.brand} {self.name}'
