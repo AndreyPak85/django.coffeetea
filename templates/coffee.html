@@ -17,4 +17,14 @@
         <img src="{{coffee.photo.url}}" alt="">
     </div>
 
+    <div>
+        <h2>Order</h2>
+        <form method="POST">
+            {% csrf_token %}
+            {{form.as_p}}
+            <input type="submit" value="Send">
+
+        </form>
+    </div>
+
 {% endblock %}

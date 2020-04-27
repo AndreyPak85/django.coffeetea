@@ -39,3 +39,9 @@ class Tea(models.Model):
 
     def __str__(self):
         return f'{self.brand} {self.name}'
+
+class Order(models.Model):
+    order_name = models.ForeignKey(Coffee)
+    name = models.CharField(max_length=30)
+    phone = models.CharField(max_length=15)
+    date = models.DateTimeField(auto_now_add=True)
