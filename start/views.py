@@ -23,7 +23,6 @@ def coffee(request, coffee_id):
     form = OrderForm(request.POST or None, initial={
         'order_name':coffee
     })
-
     if request.method == "POST":
         if form.is_valid():
             form.save()

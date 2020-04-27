@@ -19,11 +19,24 @@ from django.contrib import admin
 from django.conf.urls.static import static
 from django.conf import settings
 
-from start import views
+from start import views as viewshome
+from authapp import views
+
+from django.contrib.auth import views as auth_views
 
 urlpatterns = [
     url(r'^admin-secure/', admin.site.urls),
-    url(r'^$', views.home, name='home' ),
-    url(r'^coffee/(?P<coffee_id>\d+)$', views.coffee, name='coffee_detail'),
+    url(r'^$', viewshome.home, name='home' ),
+    url(r'^authapp/$', views.auth, name='auth' ),
+
+    url(r'^authapp/login/$', auth_views.login,
+        {'template_name': 'login.html'},
+        name='authapp-login' ),
+
+    url(r'^authapp/logout/$', auth_views.logout,
+        {'next_page': '/authapp/'},
+        name='authapp-logout' ),
+
+    url(r'^coffee/(?P<coffee_id>\d+)$', viewshome.coffee, name='coffee_detail'),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
