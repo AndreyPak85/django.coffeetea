@@ -1,6 +1,9 @@
 from django.shortcuts import render, get_object_or_404
 from start.models import Coffee, Tea
 
+from django.http import HttpResponseRedirect
+from django.core.urlresolvers import reverse
+
 from start.forms import OrderForm
 
 # Create your views here.
@@ -24,6 +27,10 @@ def coffee(request, coffee_id):
     if request.method == "POST":
         if form.is_valid():
             form.save()
+            return HttpResponseRedirect('{}?sent=True'.format(reverse('coffee_detail', kwargs={'coffee_id': coffee.id})))
 
-
-    return render(request, 'coffee.html', {'coffee': coffee, 'form': form})
+    return render(request, 'coffee.html', {'coffee': coffee,
+                                           'form': form,
+                                           'sent': request.GET.get('sent', False),
+                                            }
+                )
