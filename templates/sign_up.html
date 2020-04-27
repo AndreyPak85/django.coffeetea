@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign UP</title>
+</head>
+<body>
+    <h2>SIGN UP</h2>
+    <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ user_form.as_p }}
+        {{ coffeeshop_form.as_p }}
+        <button type="submit">AUTH</button>
+    </form>
+
+</body>
+</html>

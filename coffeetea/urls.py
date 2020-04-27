@@ -39,4 +39,6 @@ urlpatterns = [
 
     url(r'^coffee/(?P<coffee_id>\d+)$', viewshome.coffee, name='coffee_detail'),
 
+    url(r'^authapp/sign-up', views.authapp_sign_up, name='authapp-sign-up'),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
