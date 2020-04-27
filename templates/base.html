@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <title>{% block title%} Base HTML {% endblock %}</title>
 </head>
 <body>
-
+<h2>NAVBAR</h2>
 
 {% block body%}
     menu
@@ -15,6 +16,6 @@
 
 {% endblock %}
 
-
+<h2>Footer</h2>
 </body>
 </html>

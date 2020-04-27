@@ -1,6 +1,20 @@
 {% extends 'base.html'%}
+{% load staticfiles %}
 
 {% block title %}
 Каталог кофе
 {% endblock %}
 
+{% block body %}
+    <h2>main page</h2>
+
+    <div>
+
+        {{coffee.brand}}
+        {{coffee.name }}
+        {{coffee.price }}
+
+        <img src="{{coffee.photo.url}}" alt="">
+    </div>
+
+{% endblock %}

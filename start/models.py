@@ -16,7 +16,6 @@ class Coffee(models.Model):
     description = models.TextField()
     photo = models.ImageField(upload_to='')
 
-
     def __str__(self):
         return f'{self.brand} {self.name}'
 
@@ -25,10 +24,11 @@ class Coffee(models.Model):
 class Tea(models.Model):
     Black = "Черный"
     Green = "Зеленый"
+    Fruit = "Фруктовый"
     TYPE_TEA_CHOICES = (
         (Black, 'Черный'),
         (Green, "Зеленый"),
-
+        (Fruit, "Фруктовый"),
     )
     brand = models.ForeignKey(Brand, on_delete=models.SET_NULL, null=True, blank=True, default="")
     type_choice = models.CharField(max_length=30, choices=TYPE_TEA_CHOICES)

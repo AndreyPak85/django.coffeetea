@@ -1,9 +1,26 @@
 {% extends 'base.html' %}
+{% load staticfiles %}
 
 {% block title%}
 Index HTML
 {% endblock %}
 
 {% block body %}
+
     <h1>Index page</h1>
+
+    <h2>Кофе</h2>
+    {% for coffee in coffee %}
+
+        <a href="{% url 'coffee_detail' coffee_id=coffee.id %}"><p>{{coffee.brand}} {{coffee.name}} {{coffee.price}}</p></a>
+
+    {% endfor %}
+
+
+    <h2>Чай </h2>
+    {% for tea in tea %}
+        <p>{{tea.brand}} {{tea.name}} {{tea.price}}</p>
+    {% endfor %}
+
 {% endblock %}
+
