@@ -1,10 +1,13 @@
 {% load staticfiles %}
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
     <title>{% block title%} Base HTML {% endblock %}</title>
-    <a href="{% url 'authapp-logout' %}">vyhod</a>
+
 </head>
 <body>
 <h2>NAVBAR</h2>
@@ -18,5 +21,7 @@
 {% endblock %}
 
 <h2>Footer</h2>
+
+<scripts src="{% static 'scripts/bootstrap.js' %}"></scripts>
 </body>
 </html>
