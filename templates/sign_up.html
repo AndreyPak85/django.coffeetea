@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Sign UP</title>
-</head>
-<body>
-    <h2>SIGN UP PAGE</h2>
+{% extends 'base.html' %}
+{% load bootstrap3 %}
+
+
+    {% block body %}
     <form method="POST" enctype="multipart/form-data">
         {% csrf_token %}
-        {{ user_form.as_p }}
-        {{ coffeeshop_form.as_p }}
-        <button type="submit">AUTH</button>
+        <h3>Owner</h3>
+        {% bootstrap_form user_form %}
+        <h3>CoffeeShop</h3>
+        {% bootstrap_form coffeeshop_form %}
+        <button type="submit" class="btn btn-red pull-right">AUTH</button>
     </form>
-
-</body>
-</html>
+    {% endblock %}

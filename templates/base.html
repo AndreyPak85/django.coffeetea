@@ -5,23 +5,37 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
-    <link rel="stylesheet" href="{% static 'css/mystyle.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <title>{% block title%} Base HTML {% endblock %}</title>
 
 </head>
-<body>
-<h2>NAVBAR</h2>
+<body class="bg-ruby">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-lg-offset-4">
+                <br>
+                <br>
+                <br>
+                <div class="panel panel-body">
+                    <h3 class="text-center text-uppercase">
+                        <b>
+                            {% block body%}
+                                menu
+                            {% endblock %}
+                        </b>
+                    </h3>
+                </div>
 
-{% block body%}
-    menu
-{% endblock %}
+            </div>
+        </div>
+    </div>
 
-{% block content%}
 
-{% endblock %}
+
 
 <h2>Footer</h2>
 
-<scripts src="{% static 'scripts/bootstrap.js' %}"></scripts>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha384-nvAa0+6Qg9clwYCGGPpDQLVpLNn0fRaROjHqs13t4Ggj3Ez50XnGQqc/r8MhnRDZ" crossorigin="anonymous"></script>
+<script src="{% static 'scripts/bootstrap.js' %}"></script>
 </body>
 </html>
